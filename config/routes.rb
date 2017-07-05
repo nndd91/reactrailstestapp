@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/adminpanel', as: 'rails_admin'
+  devise_for :users
   root 'static#index'
   get 'static/index'
 
