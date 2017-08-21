@@ -12,7 +12,8 @@ const name = (state = '', action) => {
 
 const helloWorldReducer = combineReducers({
   name,
-  jokeList: ListOfJokes
+  jokeList: ListOfJokes,
+  searchParams: ''
 });
 
 export default helloWorldReducer;

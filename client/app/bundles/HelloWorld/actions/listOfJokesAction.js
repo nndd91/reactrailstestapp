@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export function fetchJokes() {
+export function fetchJokes(searchParams = '') {
   let url = 'https://icanhazdadjoke.com/search'
   let jokelist = [{'id': 1, 'joke': 'dhsahsa'}]
 
@@ -13,7 +13,8 @@ export function fetchJokes() {
   //     })
   //   })
   // }
-  let response = axios.get(url, { headers: { 'Accept': 'application/json' }})
+  console.log(`${url}?term=${searchParams}`)
+  let response = axios.get(`${url}?term=${searchParams}`, { headers: { 'Accept': 'application/json' }})
   return {
     type: 'FETCH_JOKE_LIST',
     payload: response

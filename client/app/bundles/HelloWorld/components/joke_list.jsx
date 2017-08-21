@@ -39,7 +39,7 @@ class JokeList extends Component {
             {this.renderList()}
           </tbody>
         </table>
-        <button onClick={() => this.props.fetchJokes()}>Fetch Jokes</button>
+        <button onClick={() => this.props.fetchJokes(this.props.searchParams)}>Fetch Jokes</button>
       </div>
     )
   }
@@ -47,7 +47,8 @@ class JokeList extends Component {
 
 function mapStateToProps(state) {
   return {
-    joke_list: state.jokeList
+    joke_list: state.jokeList,
+    searchParams: state.searchParams
   }
 }
 
