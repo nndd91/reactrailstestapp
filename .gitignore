@@ -25,3 +25,9 @@ node_modules
 
 config/application.yml
 config/database.yml
+# React on Rails
+npm-debug.log*
+node_modules
+
+# Generated js bundles
+/public/webpack/*

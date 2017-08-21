@@ -92,3 +92,6 @@ gem 'bootstrap-sass'
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'figaro'
+
+gem 'mini_racer', platforms: :ruby
+gem 'webpacker_lite'
