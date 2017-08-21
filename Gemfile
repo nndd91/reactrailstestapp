@@ -64,7 +64,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Guard::Bundler automatically install/update your gem bundle when needed
   gem 'guard-bundler', require: false
-
+  gem 'capistrano', '~>3.7.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
