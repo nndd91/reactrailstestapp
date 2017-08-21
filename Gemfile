@@ -67,7 +67,7 @@ group :development do
   gem 'guard-bundler', require: false
   gem 'capistrano', '~>3.7.2'
   gem 'capistrano3-puma'
-  gem 'capisrano-rails', require: false
+  gem 'capistrano-rails', require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rvm'
   gem 'react_on_rails', '8.0.0'
