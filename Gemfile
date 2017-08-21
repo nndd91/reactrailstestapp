@@ -48,6 +48,7 @@ group :development, :test do
   gem 'guard-rspec', require: false
   # Acceptance test framework for web applications
   gem 'capybara'
+
 end
 
 group :test do
@@ -65,6 +66,10 @@ group :development do
   # Guard::Bundler automatically install/update your gem bundle when needed
   gem 'guard-bundler', require: false
   gem 'capistrano', '~>3.7.2'
+  gem 'capistrano3-puma'
+  gem 'capisrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rvm'
   gem 'react_on_rails', '8.0.0'
 end
 
@@ -85,3 +90,8 @@ gem 'rails_admin', '~> 1.2'
 gem 'bootstrap-sass'
 # A Ruby gem to load environment variables from `.env`.
 gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'mini_racer', platforms: :ruby
+gem 'webpacker_lite'
+
+gem 'figaro'
