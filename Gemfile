@@ -91,7 +91,4 @@ gem 'bootstrap-sass'
 # A Ruby gem to load environment variables from `.env`.
 gem 'dotenv-rails', groups: [:development, :test]
 
-gem 'mini_racer', platforms: :ruby
-gem 'webpacker_lite'
-
 gem 'figaro'
