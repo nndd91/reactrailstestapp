@@ -5,6 +5,7 @@
   "name": "rails-toy",
   "private": true,
   "dependencies": {
-    "axios": "^0.16.2"
+    "axios": "^0.16.2",
+    "redux-promise": "^0.5.3"
   }
 }
