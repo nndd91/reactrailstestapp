@@ -1,13 +1,10 @@
 {
   "scripts": {
-    "postinstall": "cd client && yarn install",
-
-    "postinstall": "cd client && yarn install",
-
     "postinstall": "cd client && yarn install"
   },
-
   "name": "rails-toy",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "axios": "^0.16.2"
+  }
 }
