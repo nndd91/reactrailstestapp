@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
-
+import ListOfJokes from './listOfJokesReducer'
 const rootReducer = combineReducers({
-  list: ''
+  jokeList: ListOfJokes
 })
 
 export default rootReducer
