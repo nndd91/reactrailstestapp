@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'hello_world', to: 'hello_world#index'
+  get 'app', to: 'app#index'
   mount RailsAdmin::Engine => '/adminpanel', as: 'rails_admin'
   devise_for :users
   root 'static#index'
