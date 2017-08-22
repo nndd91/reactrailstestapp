@@ -15,10 +15,8 @@ class JokeTag extends Component {
         tags[joke.cat] = 1
       }
     })
-    console.log('Tags is: ',tags)
     return (
       Object.keys(tags).map((tag) =>{
-        console.log(tag, tags[tag])
         return (
           <li key={tag}>
             {tag} ({tags[tag]})
@@ -31,7 +29,7 @@ class JokeTag extends Component {
   render () {
     return (
       <div>
-        <h2>Tag</h2>
+        <h2>Tags</h2>
         <ul>
           {this.listTags()}
         </ul>
