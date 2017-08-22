@@ -16,9 +16,7 @@ export function fetchJokes(searchParams = '') {
   // }
   //console.log(`${url}?term=${searchParams}`)
   //let response = axios.get(`${url}?term=${searchParams}`, { headers: { 'Accept': 'application/json' }})
-  console.log('url:', url)
   let response = axios.get(url)
-  console.log('response:', response)
   return {
     type: 'FETCH_JOKE_LIST',
     payload: response

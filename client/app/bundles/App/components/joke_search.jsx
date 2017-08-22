@@ -13,13 +13,11 @@ class JokeSearch extends Component {
   }
 
   handleChange(event) {
-    console.log(this.state.searchParams)
     this.setState({searchParams: event.target.value})
 
   }
 
   fetchAndTag (event) {
-    console.log('Fetch and Tag')
     this.props.fetchJokes(this.props.searchParams)
     .then(this.props.pushJokesIntoTags(this.props.joke_list))
   }
