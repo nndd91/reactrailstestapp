@@ -3,22 +3,32 @@ import { connect } from 'react-redux'
 import { fetchJokes } from '../actions/listOfJokesAction'
 import { bindActionCreators } from 'redux'
 
+let divStyle = {
+  backgroundColor: 'rgb(213, 201, 151)'
+}
 
 class JokeList extends Component {
   constructor (props) {
     super(props)
   }
+
   renderList () {
     return (
       this.props.joke_list.map((joke) => {
         return (
           <div className="col-xs-12 col-s-6 col-md-3" key={joke.id}>
-            <div className="panel">
+            <div className="panel" style={divStyle}>
               <div className="panel-heading">
                 {joke.id}
               </div>
               <div className="panel-body">
-                {joke.joke}
+                <ul>
+                  <li>Category: {joke.cat}</li>
+                  <li>Color: {joke.color}</li>
+                  <li>Joke: {joke.joke}</li>
+                </ul>
+
+
               </div>
             </div>
           </div>

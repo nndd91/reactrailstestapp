@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import JokeList from './joke_list'
-import JokeSearch from './joke_search'
-import JokeTags from './joke_tag'
+
+import SideBar from './sidebar'
 export default class App extends Component {
   render () {
     return (
@@ -9,13 +9,10 @@ export default class App extends Component {
         <div className="row">
           <h1>App Component</h1>
           <div className="col-xs-2">
-            <div className="row">
-              <JokeSearch />
-            </div>
-            <JokeTags />
+            <SideBar />
           </div>
+          
           <div className="col-xs-10">
-
             <div className="row">
               <JokeList />
             </div>
