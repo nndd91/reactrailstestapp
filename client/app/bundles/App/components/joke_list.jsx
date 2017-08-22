@@ -3,23 +3,25 @@ import { connect } from 'react-redux'
 import { fetchJokes } from '../actions/listOfJokesAction'
 import { bindActionCreators } from 'redux'
 
+
 class JokeList extends Component {
   constructor (props) {
     super(props)
   }
-
   renderList () {
     return (
       this.props.joke_list.map((joke) => {
         return (
-          <tr key={joke.id}>
-            <td>
-              {joke.id}
-            </td>
-            <td>
-              {joke.joke}
-            </td>
-          </tr>
+          <div className="col-xs-12 col-s-6 col-md-3" key={joke.id}>
+            <div className="panel">
+              <div className="panel-heading">
+                {joke.id}
+              </div>
+              <div className="panel-body">
+                {joke.joke}
+              </div>
+            </div>
+          </div>
         )
       })
     )
@@ -28,18 +30,9 @@ class JokeList extends Component {
   render () {
     return (
       <div className="joke-list">
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Joke ID</th>
-              <th>Joke</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.renderList()}
-          </tbody>
-        </table>
-        <button onClick={() => this.props.fetchJokes(this.props.searchParams)}>Fetch Jokes</button>
+        <div className="row">
+          {this.renderList()}
+        </div>
       </div>
     )
   }
@@ -52,8 +45,6 @@ function mapStateToProps(state) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchJokes: fetchJokes }, dispatch )
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(JokeList)
+
+export default connect(mapStateToProps)(JokeList)
