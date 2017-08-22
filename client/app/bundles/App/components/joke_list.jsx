@@ -27,8 +27,6 @@ class JokeList extends Component {
                   <li>Color: {joke.color}</li>
                   <li>Joke: {joke.joke}</li>
                 </ul>
-
-
               </div>
             </div>
           </div>
