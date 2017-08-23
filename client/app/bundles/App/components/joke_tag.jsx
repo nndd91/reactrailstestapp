@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { addDisabledTags } from '../actions/addDisabledTagsAction'
+import { addDisabledTags } from '../actions/tagsAction'
 import JokeTagItem from './joke_tag_item'
 
 class JokeTag extends Component {

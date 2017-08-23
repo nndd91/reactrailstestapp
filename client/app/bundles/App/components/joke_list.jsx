@@ -10,6 +10,7 @@ let divStyle = {
 class JokeList extends Component {
   constructor (props) {
     super(props)
+    this.props.fetchJokes()
   }
   renderList () {
     return (
@@ -52,6 +53,9 @@ class JokeList extends Component {
     )
   }
 }
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators({ fetchJokes: fetchJokes }, dispatch)
+}
 
 function mapStateToProps(state) {
   return {
@@ -63,4 +67,4 @@ function mapStateToProps(state) {
 
 
 
-export default connect(mapStateToProps)(JokeList)
+export default connect(mapStateToProps, mapDispatchToProps)(JokeList)
