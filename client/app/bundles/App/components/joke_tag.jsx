@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { addDisabledTags } from '../actions/tagsAction'
+import { addDisabledTags, toggleTag } from '../actions/tagsAction'
 import JokeTagItem from './joke_tag_item'
 
 class JokeTag extends Component {
@@ -11,37 +11,18 @@ class JokeTag extends Component {
   }
 
   handleClick (tag) {
-    console.log('Clicked!', tag)
-    let initialTags = this.props.disabledTags
-    if (initialTags.includes(tag)) {
-      console.log('Remove tag')
-      initialTags =
-        initialTags.filter((el) => {
-          return el != tag
-        })
-    } else {
-      initialTags.push(tag)
-    }
-    this.props.addDisabledTags(initialTags)
+    this.props.toggleTag(tag)
   }
 
-
   listTags () {
-    let tags = {}
-    this.props.joke_list.forEach((joke) => {
-      if (joke.cat in tags) {
-        tags[joke.cat] += 1
-      } else {
-        tags[joke.cat] = 1
-      }
-    })
-
+    let tags = this.props.disabledTags
+    console.log('tags is: ', tags)
     return (
       Object.keys(tags).map((tag) =>{
         return (
           <JokeTagItem key={tag}
                        handleClick = {() => { this.handleClick(tag) }}
-                       tagDetails={{tag: tag, numberOfTags: tags[tag], disabled: !this.props.disabledTags.includes(tag)}} />
+                       tagDetails={{tag: tag, disabled: tags[tag]}} />
         )
       })
     )
@@ -61,13 +42,14 @@ class JokeTag extends Component {
 
 function mapStateToProps(state) {
   return {
-    joke_list: state.jokeList,
+    filteredList: state.filteredList,
     disabledTags: state.disabledTags
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addDisabledTags: addDisabledTags }, dispatch)
+  return bindActionCreators({ addDisabledTags: addDisabledTags,
+                              toggleTag: toggleTag}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(JokeTag)

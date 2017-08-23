@@ -6,8 +6,7 @@ const JokeTagItem = (props) => {
       <li onClick={props.handleClick}>
         <label>
         <input type="checkbox"
-               checked={!props.tagDetails.disabled}/>
-          {props.tagDetails.tag} ({props.tagDetails.numberOfTags})
+               checked={!props.tagDetails.disabled}/> {props.tagDetails.tag}
         </label>
       </li>
   )

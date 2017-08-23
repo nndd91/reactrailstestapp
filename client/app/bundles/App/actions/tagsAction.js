@@ -4,3 +4,17 @@ export function addDisabledTags(tag) {
     payload: tag
   }
 }
+
+export function refreshTags(filteredList) {
+  return {
+    type: 'REFRESH_TAGS',
+    payload: filteredList
+  }
+}
+
+export function toggleTag(tag) {
+  return {
+    type: 'TOGGLE_TAG',
+    payload: tag
+  }
+}
