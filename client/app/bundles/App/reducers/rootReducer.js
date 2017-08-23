@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 import ListOfJokes from './listOfJokesReducer'
-import JokeTags from './jokeTagsReducer'
+import searchParams from './searchParamsReducer'
 import FilteredList from './filteredListReducer'
 
 const rootReducer = combineReducers({
   jokeList: ListOfJokes,
-  jokeTags: JokeTags,
+  searchParams: searchParams,
   FilteredList: FilteredList
 })
 
