@@ -3,6 +3,7 @@ import { fetchJokes } from '../actions/listOfJokesAction'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { updateSearchParams } from '../actions/updateSearchParams'
+import { updateFilterList } from '../actions/filteredListAction'
 
 class JokeSearch extends Component {
   constructor (props) {
@@ -14,6 +15,7 @@ class JokeSearch extends Component {
 
   handleChange(event) {
     this.props.updateSearchParams(event.target.value)
+    this.props.updateFilterList(this.props.joke_list, this.props.searchParams)
   }
 
   render () {
@@ -29,13 +31,14 @@ class JokeSearch extends Component {
 
 function mapStateToProps (state) {
   return {
-    searchParams: state.searchParams
+    searchParams: state.searchParams,
+    joke_list: state.jokeList
   }
 }
 
 
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators({ fetchJokes: fetchJokes, updateSearchParams: updateSearchParams }, dispatch)
+  return bindActionCreators({ fetchJokes: fetchJokes, updateSearchParams: updateSearchParams, updateFilterList: updateFilterList }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(JokeSearch)

@@ -10,23 +10,18 @@ let divStyle = {
 class JokeList extends Component {
   constructor (props) {
     super(props)
-    this.filteredList = this.filteredList.bind(this)
   }
-
-  filteredList() {
-    let filteredList =
-      this.props.joke_list.filter((joke) => {
-        console.log('Joke is: ', joke.joke)
-        console.log(joke.joke.search(this.props.searchParams))
-        return joke.joke.search(this.props.searchParams) >= 0
-      })
-    console.log('filtered list is: ',filteredList)
-    return filteredList
-  }
-
   renderList () {
     return (
-      this.filteredList().map((joke) => {
+      this.props.filteredList.map((joke, index) => {
+        let clearfix = null
+
+        if ((index+1)%4 == 0) {
+          clearfix = <div className="clearfix visible-xs"></div>
+        } else {
+          clearfix = <div></div>
+        }
+
         return (
           <div className="col-xs-12 col-s-6 col-md-3" key={joke.id}>
             <div className="panel" style={divStyle}>
@@ -60,6 +55,7 @@ class JokeList extends Component {
 
 function mapStateToProps(state) {
   return {
+    filteredList: state.filteredList,
     joke_list: state.jokeList,
     searchParams: state.searchParams
   }

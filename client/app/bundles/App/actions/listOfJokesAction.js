@@ -1,6 +1,7 @@
 import axios from 'axios'
+import { updateFilterList } from './filteredListAction'
 
-export function fetchJokes(searchParams = '') {
+function fetchJokesList(searchParams = '') {
   //let url = 'https://icanhazdadjoke.com/search'
   let url = 'https://testapi123-f814c.firebaseio.com/jokes.json'
   let jokelist = [{'id': 1, 'joke': 'dhsahsa'}]
@@ -20,5 +21,12 @@ export function fetchJokes(searchParams = '') {
   return {
     type: 'FETCH_JOKE_LIST',
     payload: response
+  }
+}
+
+export function fetchJokes(searchParams = '') {
+  return dispatch => {
+    dispatch(fetchJokesList(searchParams))
+    dispatch(updateFilterList([], ''))
   }
 }
