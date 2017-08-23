@@ -10,11 +10,23 @@ let divStyle = {
 class JokeList extends Component {
   constructor (props) {
     super(props)
+    this.filteredList = this.filteredList.bind(this)
+  }
+
+  filteredList() {
+    let filteredList =
+      this.props.joke_list.filter((joke) => {
+        console.log('Joke is: ', joke.joke)
+        console.log(joke.joke.search(this.props.searchParams))
+        return joke.joke.search(this.props.searchParams) >= 0
+      })
+    console.log('filtered list is: ',filteredList)
+    return filteredList
   }
 
   renderList () {
     return (
-      this.props.joke_list.map((joke) => {
+      this.filteredList().map((joke) => {
         return (
           <div className="col-xs-12 col-s-6 col-md-3" key={joke.id}>
             <div className="panel" style={divStyle}>

@@ -7,6 +7,7 @@ import { updateSearchParams } from '../actions/updateSearchParams'
 class JokeSearch extends Component {
   constructor (props) {
     super (props)
+    this.props.fetchJokes()
     this.state = {searchParams: ''}
     this.handleChange = this.handleChange.bind(this)
   }
