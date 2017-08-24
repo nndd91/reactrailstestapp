@@ -23,7 +23,7 @@ class JokeSearch extends Component {
     return (
       <div className="joke-search">
         <h2>Search: </h2>
-        <input value={this.props.searchParams} onChange={this.handleChange} onBlur={() => this.props.fetchJokes(this.state.searchParams)}></input>
+        <input value={this.props.searchParams} onChange={this.handleChange}></input>
         <button onClick={this.props.fetchJokes}>Fetch Jokes</button>
       </div>
     )

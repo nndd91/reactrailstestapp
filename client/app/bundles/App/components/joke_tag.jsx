@@ -16,12 +16,14 @@ class JokeTag extends Component {
 
   listTags () {
     let tags = this.props.disabledTags
-    console.log('tags is: ', tags)
     return (
       Object.keys(tags).map((tag) =>{
+        let obj = {}
+        obj[tag] = !tags[tag]
+
         return (
           <JokeTagItem key={tag}
-                       handleClick = {() => { this.handleClick(tag) }}
+                       handleClick = {() => { this.handleClick(obj) }}
                        tagDetails={{tag: tag, disabled: tags[tag]}} />
         )
       })

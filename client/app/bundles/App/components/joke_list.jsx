@@ -11,18 +11,20 @@ class JokeList extends Component {
   constructor (props) {
     super(props)
     this.props.fetchJokes()
+    this.activeTags = this.activeTags.bind(this)
   }
+
+  activeTags () {
+    let activeTags =
+    this.props.filteredList.filter((joke) => {
+      return !this.props.disabledTags[joke.cat]
+    })
+    return activeTags
+  }
+
   renderList () {
     return (
-      this.props.filteredList.map((joke, index) => {
-        let clearfix = null
-
-        if ((index+1)%4 == 0) {
-          clearfix = <div className="clearfix visible-xs"></div>
-        } else {
-          clearfix = <div></div>
-        }
-
+      this.activeTags().map((joke, index) => {
         return (
           <div className="col-xs-12 col-s-6 col-md-3" key={joke.id}>
             <div className="panel" style={divStyle}>
@@ -61,7 +63,8 @@ function mapStateToProps(state) {
   return {
     filteredList: state.filteredList,
     joke_list: state.jokeList,
-    searchParams: state.searchParams
+    searchParams: state.searchParams,
+    disabledTags: state.disabledTags
   }
 }
 
