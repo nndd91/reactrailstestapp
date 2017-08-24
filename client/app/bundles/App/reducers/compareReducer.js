@@ -1,7 +1,7 @@
 export default function (state = [], action) {
   switch (action.type) {
     case 'ADD_TO_COMPARE_POOL' :
-      if (state.length < 4) {
+      if ((state.length < 4) || state.includes(action.payload)) {
         return[
           ...state, action.payload
         ]
