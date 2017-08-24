@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchJokes } from '../actions/listOfJokesAction'
 import { bindActionCreators } from 'redux'
-
-let divStyle = {
-  backgroundColor: 'rgb(213, 201, 151)'
-}
+import { addToComparePool, removeFromComparePool } from '../actions/compareAction'
+import { JokeListItem } from './joke_list_item'
 
 class JokeList extends Component {
   constructor (props) {
@@ -16,30 +14,22 @@ class JokeList extends Component {
 
   activeTags () {
     let activeTags =
-    this.props.filteredList.filter((joke) => {
-      return !this.props.disabledTags[joke.cat]
-    })
+      this.props.filteredList.filter((joke) => {
+        return !this.props.disabledTags[joke.cat]
+      })
     return activeTags
   }
 
   renderList () {
+    console.log('Compare Pool is: ', this.props.comparePool)
     return (
-      this.activeTags().map((joke, index) => {
+      this.activeTags().map((joke) => {
         return (
-          <div className="col-xs-12 col-s-6 col-md-3" key={joke.id}>
-            <div className="panel" style={divStyle}>
-              <div className="panel-heading">
-                {joke.id}
-              </div>
-              <div className="panel-body">
-                <ul>
-                  <li>Category: {joke.cat}</li>
-                  <li>Color: {joke.color}</li>
-                  <li>Joke: {joke.joke}</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+            <JokeListItem key={joke.id}
+                          joke={joke}
+                          inComparePool={this.props.comparePool.includes(joke)}
+                          addToComparePool={() => {this.props.addToComparePool(joke)}}
+                          removeFromComparePool={() => {this.props.removeFromComparePool(joke)}}/>
         )
       })
     )
@@ -55,8 +45,11 @@ class JokeList extends Component {
     )
   }
 }
+
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators({ fetchJokes: fetchJokes }, dispatch)
+  return bindActionCreators({ fetchJokes: fetchJokes,
+                              addToComparePool: addToComparePool,
+                              removeFromComparePool: removeFromComparePool }, dispatch)
 }
 
 function mapStateToProps(state) {
@@ -64,7 +57,8 @@ function mapStateToProps(state) {
     filteredList: state.filteredList,
     joke_list: state.jokeList,
     searchParams: state.searchParams,
-    disabledTags: state.disabledTags
+    disabledTags: state.disabledTags,
+    comparePool: state.comparePool
   }
 }
 
