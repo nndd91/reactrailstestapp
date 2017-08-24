@@ -21,7 +21,7 @@ class JokeSearch extends Component {
 
   render () {
     return (
-      <div className="joke-search">
+      <div className="joke-search col-xs-12">
         <h2>Search: </h2>
         <input value={this.props.searchParams} onChange={this.handleChange}></input>
         <button onClick={this.props.fetchJokes}>Fetch Jokes</button>

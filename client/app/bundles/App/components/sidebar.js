@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import JokeSearch from './joke_search'
 import JokeTags from './joke_tag'
+import ComparePreview from './compare_preview'
 
 const SideBar = (props) =>  {
   return (
@@ -10,6 +11,9 @@ const SideBar = (props) =>  {
         </div>
         <div className="row">
           <JokeTags />
+        </div>
+        <div className="row">
+          <ComparePreview />
         </div>
       </div>
   )

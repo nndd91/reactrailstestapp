@@ -32,7 +32,7 @@ class JokeTag extends Component {
 
   render () {
     return (
-      <div>
+      <div className="col-xs-12">
         <h2>Tags</h2>
         <ul>
           {this.listTags()}
