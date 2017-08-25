@@ -2,7 +2,7 @@ import React from 'react'
 import JokeSearch from './joke_search'
 import JokeTags from './joke_tag'
 import ComparePreview from './compare_preview'
-
+import { Link } from 'react-router'
 const SideBar = (props) =>  {
   return (
       <div>
@@ -14,6 +14,8 @@ const SideBar = (props) =>  {
         </div>
         <div className="row">
           <ComparePreview />
+        </div>
+        <div>
         </div>
       </div>
   )
