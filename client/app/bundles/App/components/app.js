@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import JokeList from './joke_list'
 import SideBar from './sidebar'
-import { Route } from 'react-router'
+import { Route, Link } from 'react-router'
 
 
 export default class App extends Component {
@@ -16,8 +16,8 @@ export default class App extends Component {
 
           <div className="col-xs-10">
             <div className="row">
-              <Route path="/" component={JokeList} />
-              <Route path="/test" component={SideBar} />
+              <Route path="/app" component={JokeList} />
+              <Route path="/app/test" component={SideBar} />
             </div>
           </div>
         </div>
